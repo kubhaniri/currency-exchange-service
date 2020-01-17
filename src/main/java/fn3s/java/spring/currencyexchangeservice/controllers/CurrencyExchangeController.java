@@ -1,5 +1,6 @@
 package fn3s.java.spring.currencyexchangeservice.controllers;
 
+import fn3s.java.spring.currencyexchangeservice.config.Configuration;
 import fn3s.java.spring.currencyexchangeservice.repo.ExchangeValueRepository;
 import fn3s.java.spring.currencyexchangeservice.bean.ExchangeValue;
 import org.slf4j.Logger;
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class CurrencyExchangeController {
 
     private Logger log = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private Configuration configuration;
+
     @Autowired
     private Environment environment;
 
@@ -26,7 +31,8 @@ public class CurrencyExchangeController {
             @PathVariable String to
     )
     {
-        log.info("this CurrencyExchangeController Service: from = {}, to = {}", from, to);
+        log.info("this CurrencyExchangeController Service: from = {}, to = {}. Value of protocol is: {}", from, to, configuration.getProtolo());
+
         ExchangeValue exchangeValue = exchangeValueRepository.findByFromAndTo(from, to);
         exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
         return exchangeValue;
