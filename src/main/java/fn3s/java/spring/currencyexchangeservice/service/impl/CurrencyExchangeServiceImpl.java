@@ -31,11 +31,11 @@ public class CurrencyExchangeServiceImpl implements CurrencyExchangeService {
     public ExchangeValue retrieveExchangeValue(String from, String to) {
 
         ExchangeValue exchangeValue = exchangeValueRepository.findByFromAndTo(from, to);
-        exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
         VolatilityBoundaryBean volatilityBoundary = limitServiceProxy.getVolatilityBoundary(from, to);
         log.info("VolatilityBoundaryBean from currency {} to {} is: {}", from, to, volatilityBoundary);
         exchangeValue.setMaxBounded(volatilityBoundary.getMaxBounded());
         exchangeValue.setMinBounded(volatilityBoundary.getMinBounded());
+        exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
         return exchangeValue;
     }
 }

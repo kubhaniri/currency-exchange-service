@@ -9,16 +9,18 @@ public class VolatilityBoundaryBean {
     private BigDecimal minBounded;
     private BigDecimal maxBounded;
     private Date dateInsertion;
+    private int port;
 
     public VolatilityBoundaryBean() {
     }
 
-    public VolatilityBoundaryBean(String currencyFrom, String currencyTo, BigDecimal minBounded, BigDecimal maxBounded, Date dateInsertion) {
+    public VolatilityBoundaryBean(String currencyFrom, String currencyTo, BigDecimal minBounded, BigDecimal maxBounded, Date dateInsertion, int port) {
         this.currencyFrom = currencyFrom;
         this.currencyTo = currencyTo;
         this.minBounded = minBounded;
         this.maxBounded = maxBounded;
         this.dateInsertion = dateInsertion;
+        this.port = port;
     }
 
     public String getCurrencyFrom() {
@@ -59,5 +61,25 @@ public class VolatilityBoundaryBean {
 
     public void setDateInsertion(Date dateInsertion) {
         this.dateInsertion = dateInsertion;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    @Override
+    public String toString() {
+        return "VolatilityBoundaryBean{" +
+                "currencyFrom='" + currencyFrom + '\'' +
+                ", currencyTo='" + currencyTo + '\'' +
+                ", minBounded=" + minBounded +
+                ", maxBounded=" + maxBounded +
+                ", dateInsertion=" + dateInsertion +
+                ", port=" + port +
+                '}';
     }
 }

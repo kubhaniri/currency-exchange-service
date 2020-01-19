@@ -70,4 +70,17 @@ public class ExchangeValue {
     public void setMaxBounded(BigDecimal maxBounded) {
         this.maxBounded = maxBounded;
     }
+
+    @Override
+    public String toString() {
+        return "ExchangeValue{" +
+                "id=" + id +
+                ", from='" + from + '\'' +
+                ", to='" + to + '\'' +
+                ", conversionMultiple=" + conversionMultiple +
+                ", port=" + port +
+                ", minBounded=" + minBounded +
+                ", maxBounded=" + maxBounded +
+                '}';
+    }
 }
