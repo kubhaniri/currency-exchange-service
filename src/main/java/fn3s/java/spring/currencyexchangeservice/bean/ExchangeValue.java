@@ -18,6 +18,9 @@ public class ExchangeValue {
     private BigDecimal conversionMultiple;
     private int port;
 
+    private BigDecimal minBounded;
+    private BigDecimal maxBounded;
+
     public ExchangeValue() {
     }
 
@@ -50,5 +53,21 @@ public class ExchangeValue {
 
     public void setPort(int port) {
         this.port = port;
+    }
+
+    public BigDecimal getMinBounded() {
+        return minBounded;
+    }
+
+    public void setMinBounded(BigDecimal minBounded) {
+        this.minBounded = minBounded;
+    }
+
+    public BigDecimal getMaxBounded() {
+        return maxBounded;
+    }
+
+    public void setMaxBounded(BigDecimal maxBounded) {
+        this.maxBounded = maxBounded;
     }
 }
